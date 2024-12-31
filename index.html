@@ -22,6 +22,7 @@
             transition: background-color 1s ease;
             background-size: cover;
             background-position: center;
+            padding: 10px; /* Añadido padding para mejor visualización en pantallas pequeñas */
         }
 
         .btn {
@@ -35,6 +36,7 @@
             box-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
             transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
             z-index: 10;
+            margin: 0 auto;
         }
 
         .btn:hover {
@@ -154,14 +156,6 @@
             }
         }
 
-        /* Fondo responsivo */
-        @media (max-width: 768px) {
-            body.rotated {
-                transform: rotate(90deg); /* Rota la imagen solo cuando la pantalla es pequeña */
-                background-size: contain; /* Asegura que la imagen se ajuste correctamente después de la rotación */
-                background-position: top left; /* Asegura que la imagen se posicione correctamente después de la rotación */
-            }
-        }
     </style>
 </head>
 <body>
@@ -173,20 +167,6 @@
 <div id="message">¡Feliz Año Nuevo, Vi! Lo mejor para este 2025</div>
 
 <script>
-    // Detecta el tamaño de la ventana y aplica la rotación si es necesario
-    function adjustRotation() {
-        const body = document.body;
-        if (window.innerWidth <= 768) {
-            body.classList.add('rotated');  // Aplica la rotación cuando la pantalla es pequeña
-        } else {
-            body.classList.remove('rotated');  // Quita la rotación cuando la pantalla es grande
-        }
-    }
-
-    // Llama a la función cuando la página cargue o cuando la ventana cambie de tamaño
-    window.addEventListener('resize', adjustRotation);
-    window.addEventListener('load', adjustRotation);
-
     document.getElementById("animateBtn").addEventListener("click", () => {
         startCountdown();
     });
@@ -264,13 +244,11 @@
 
     function changeBackground() {
         document.body.style.backgroundColor = '#000000';
-        document.body.style.backgroundImage = 'url("collage.webp")'; // Aparece la imagen de fondo
-
-        // Inicia la rotación de la imagen cuando el fondo está listo
-        adjustRotation();
+        document.body.style.backgroundImage = 'url("collage.webp")'; // Asegúrate de que esta imagen exista o se cargue correctamente
     }
 </script>
 
 </body>
 </html>
+
 
