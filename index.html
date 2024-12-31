@@ -23,13 +23,14 @@
             background-size: cover;
             background-position: center;
             padding: 10px; /* Añadido padding para mejor visualización en pantallas pequeñas */
+            background-repeat: no-repeat; /* Evita que el fondo se repita */
         }
 
         .btn {
             background-color: #ff1493;
             color: white;
             padding: 20px 40px;
-            font-size: 24px;
+            font-size: 5vw; /* Ajusta el tamaño de la fuente basado en el ancho de la ventana */
             border: none;
             border-radius: 15px;
             cursor: pointer;
@@ -49,8 +50,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            width: 100vw; /* Asegura que el contenedor ocupe todo el ancho */
+            height: 100vh; /* Asegura que el contenedor ocupe toda la altura */
             pointer-events: none;
             z-index: 1000;
         }
@@ -112,7 +113,7 @@
 
         #message {
             display: none;
-            font-size: 80px;
+            font-size: 10vw; /* Ajusta el tamaño del mensaje basado en el tamaño de la pantalla */
             font-weight: bold;
             margin-top: 20px;
             color: #ffffff;
@@ -153,6 +154,18 @@
             100% {
                 transform: scale(1);
                 opacity: 1;
+            }
+        }
+
+        /* Media Queries para móviles */
+        @media (max-width: 600px) {
+            .btn {
+                padding: 15px 30px;
+                font-size: 6vw;
+            }
+            
+            #message {
+                font-size: 15vw;
             }
         }
 
