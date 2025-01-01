@@ -22,15 +22,15 @@
             transition: background-color 1s ease;
             background-size: cover;
             background-position: center;
-            padding: 10px; /* Añadido padding para mejor visualización en pantallas pequeñas */
-            background-repeat: no-repeat; /* Evita que el fondo se repita */
+            padding: 10px;
+            background-repeat: no-repeat;
         }
 
         .btn {
             background-color: #ff1493;
             color: white;
             padding: 20px 40px;
-            font-size: 5vw; /* Ajusta el tamaño de la fuente basado en el ancho de la ventana */
+            font-size: 5vw;
             border: none;
             border-radius: 15px;
             cursor: pointer;
@@ -50,8 +50,8 @@
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw; /* Asegura que el contenedor ocupe todo el ancho */
-            height: 100vh; /* Asegura que el contenedor ocupe toda la altura */
+            width: 100vw;
+            height: 100vh;
             pointer-events: none;
             z-index: 1000;
         }
@@ -113,7 +113,7 @@
 
         #message {
             display: none;
-            font-size: 10vw; /* Ajusta el tamaño del mensaje basado en el tamaño de la pantalla */
+            font-size: 10vw;
             font-weight: bold;
             margin-top: 20px;
             color: #ffffff;
@@ -156,19 +156,18 @@
                 opacity: 1;
             }
         }
-
-        /* Media Queries para móviles */
-        @media (max-width: 600px) {
-            .btn {
-                padding: 15px 30px;
-                font-size: 6vw;
-            }
-            
+        @media (max-width: 768px) {
             #message {
-                font-size: 15vw;
+            
+                font-size: 8vw; /* Ajusta el tamaño para pantallas pequeñas */
+                position: absolute;
+                top: 40%;
+                left: 0%;
+                transform: translate(0%, 0%);
+                text-align: center; /* Asegura que el texto esté centrado horizontalmente */
             }
         }
-
+        
     </style>
 </head>
 <body>
@@ -177,7 +176,7 @@
 
 <div id="confetti-container"></div>
 <img id="bomb" src="bomb.webp" alt="Bomba">
-<div id="message">¡Feliz Año Nuevo, Vi! Lo mejor para este 2025</div>
+<div id="message"></div>
 
 <script>
     document.getElementById("animateBtn").addEventListener("click", () => {
@@ -208,6 +207,7 @@
                     changeBackground(); 
                     const message = document.getElementById("message");
                     message.style.display = 'block';
+                    setMessageText(); // Cambiar el texto según el dispositivo
                     setTimeout(() => {
                         message.style.opacity = 1;
                         startCelebration();
@@ -215,6 +215,16 @@
                 }, 500);  
             }
         }, 1000);
+    }
+
+    function setMessageText() {
+        const isPC = window.innerWidth >= 769;
+        const message = document.getElementById("message");
+        if (isPC) {
+            message.textContent = "¡Feliz Año Nuevo, Vi! Lo mejor para este 2025";
+        } else {
+            message.textContent = "¡Feliz Año Nuevo, Vi! Lo mejor para este 2025";
+        }
     }
 
     function startCelebration() {
@@ -256,12 +266,20 @@
     }
 
     function changeBackground() {
+        const isPC = window.innerWidth >= 769;
         document.body.style.backgroundColor = '#000000';
-        document.body.style.backgroundImage = 'url("collage.webp")'; // Asegúrate de que esta imagen exista o se cargue correctamente
+
+        if (isPC) {
+            document.body.style.backgroundImage = 'url("collage-pc.webp")';
+        } else {
+            document.body.style.backgroundImage = 'url("collage-movil.jpg")';
+        }
+
+        document.body.style.backgroundSize = 'cover';
+        document.body.style.backgroundPosition = 'center';
+        document.body.style.backgroundRepeat = 'no-repeat';
     }
 </script>
 
 </body>
 </html>
-
-
