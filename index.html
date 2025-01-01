@@ -172,10 +172,10 @@
 </head>
 <body>
 
-<button class="btn" id="animateBtn">Presiona el Boton👀</button>
+<button class="btn" id="animateBtn">Presiona el Button👀</button>
 
 <div id="confetti-container"></div>
-<img id="bomb" src="bomb.webp" alt="Bomba">
+<img id="bomb" src="piplup.webp" alt="Bomba">
 <div id="message"></div>
 
 <script>
@@ -199,7 +199,7 @@
             document.getElementById("bomb").setAttribute('alt', `Contando: ${count}`);
             count++;
 
-            if (count > 3) {
+            if (count > 2) {
                 clearInterval(countdownInterval);
                 bomb.style.opacity = 0;
 
@@ -272,7 +272,7 @@
         if (isPC) {
             document.body.style.backgroundImage = 'url("collage-pc.webp")';
         } else {
-            document.body.style.backgroundImage = 'url("collage-movil.jpg")';
+            document.body.style.backgroundImage = 'url("collage-movil.webp")';
         }
 
         document.body.style.backgroundSize = 'cover';
@@ -283,3 +283,4 @@
 
 </body>
 </html>
+
